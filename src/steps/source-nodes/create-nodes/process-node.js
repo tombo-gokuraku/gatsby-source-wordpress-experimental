@@ -83,6 +83,10 @@ const getCheerioImgRelayId = (cheerioImg) =>
   dbIdToMediaItemRelayId(getCheerioImgDbId(cheerioImg))
 
 export const ensureSrcHasHostname = ({ src, wpUrl }) => {
+  if (src === undefined) {
+    return ""
+  }
+
   const { protocol, host } = url.parse(wpUrl)
 
   if (src.startsWith(`/`)) {
